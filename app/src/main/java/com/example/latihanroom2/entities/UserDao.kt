@@ -10,4 +10,6 @@ interface UserDao {
     fun getDataUser(): List<UserEntity>
     @Query("delete from users")
     fun deleteAllUsers()
+    @Query("select * from users where zona like :zona")
+    fun getDataUserByZona(zona: String): List<UserEntity>
 }

@@ -6,16 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/tv_id_rvItemViewUser"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Id"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
-    <TextView
         android:id="@+id/tv_nama_rvItemViewUser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,15 +13,23 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_id_rvItemViewUser">
+        app:layout_constraintTop_toTopOf="parent">
     </TextView>
     <TextView
-        android:id="@+id/tv_umur_rvItemViewUser"
+        android:id="@+id/tv_email_rvItemViewUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nama_rvItemViewUser">
+    </TextView>
+    <TextView
+        android:id="@+id/tv_zona_rvItemViewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Umur"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama_rvItemViewUser"
+        android:text="Zona Kerja"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email_rvItemViewUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">

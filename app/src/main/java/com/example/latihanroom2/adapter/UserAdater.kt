@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.rv_itemview_user.view.*
 class UserAdater(val items:List<UserEntity>, val context:Context): RecyclerView.Adapter<UserAdater.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val nama = view.tv_nama_rvItemViewUser
-        val umur = view.tv_umur_rvItemViewUser
-        val id = view.tv_id_rvItemViewUser
+        val email = view.tv_email_rvItemViewUser
+        val zona = view.tv_zona_rvItemViewUser
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,8 +25,8 @@ class UserAdater(val items:List<UserEntity>, val context:Context): RecyclerView.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.nama.text = items.get(position).nama
-        holder.umur.text = items.get(position).umur
-        holder.id.text = items.get(position).id.toString()
+        holder.email.text = items.get(position).email
+        holder.zona.text = items.get(position).zona
     }
 
     override fun getItemCount(): Int {

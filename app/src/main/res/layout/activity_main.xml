@@ -12,45 +12,109 @@
         android:orientation="vertical">
         <LinearLayout
             android:id="@+id/lin_form_main"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center|top"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/et_nama_main"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama">
-            </EditText>
-            <EditText
-                android:id="@+id/et_umur_main"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/et_cari_main"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Contoh: Jakarta">
+                </EditText>
+                <Button
+                    android:id="@+id/btn_cari_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cari"
+                    android:lineSpacingExtra="2dp"
+                    android:lineSpacingMultiplier="0.8">
+                </Button>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dedede">
+            </View>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Umur">
-            </EditText>
-            <Button
-                android:id="@+id/btn_tambah_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tambah">
-            </Button>
-            <Button
-                android:id="@+id/btn_delete_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="delete all">
-            </Button>
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <Button
+                    android:id="@+id/btn_tambah_main"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tambah">
+                </Button>
+                <Button
+                    android:id="@+id/btn_delete_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="delete all">
+                </Button>
+            </LinearLayout>
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dedede">
+        </View>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:paddingBottom="8dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tampil Semua Data"
+                android:textStyle="bold">
+            </TextView>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_user_main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dedede">
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:paddingTop="8dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berdasarkan Zona"
+                android:textStyle="bold">
+            </TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_userByZona_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"/>
         </LinearLayout>
     </LinearLayout>
 

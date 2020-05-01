@@ -7,5 +7,6 @@ data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
     var nama: String,
-    var umur: String
+    var email: String,
+    var zona: String
 )

@@ -1,7 +1,9 @@
 package com.example.latihanroom2
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.latihanroom2.adapter.UserAdater
 import com.example.latihanroom2.entities.UserDao
@@ -11,6 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.*
 import io.reactivex.schedulers.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.input_dialog.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,13 +28,31 @@ class MainActivity : AppCompatActivity() {
 
         db = UserDatabase.getIntance(this)
         rv_user_main.layoutManager = LinearLayoutManager(this)
+        rv_userByZona_main.layoutManager = LinearLayoutManager(this)
 
         btn_tambah_main.setOnClickListener(){
-            val nama = et_nama_main.text.toString()
-            val umur = et_umur_main.text.toString()
-            users = UserEntity(0,nama,umur)
-            insertData(users)
+            val dialogBuilder = AlertDialog.Builder(this)
+            val view = layoutInflater.inflate(R.layout.input_dialog,null)
+            dialogBuilder.setView(view)
+            dialogBuilder.setTitle("Masukkan data baru")
+            dialogBuilder.setPositiveButton("Tambah"){ _:DialogInterface,_: Int->
+                val nama = view.et_nama_dialog.text.toString()
+                val email = view.et_email_dialog.text.toString()
+                val zona = view.et_zona_dialog.text.toString()
+
+                users = UserEntity(0,nama,email,zona)
+                insertData(users)
+            }
+            dialogBuilder.setNegativeButton("Batal"){ _:DialogInterface,_: Int->
+
+            }
+            dialogBuilder.show()
         }
+        btn_cari_main.setOnClickListener(){
+            val cariZona = et_cari_main.text.toString()
+            getDataUserByZona(cariZona)
+        }
+
         btn_delete_main.setOnClickListener(){
             deleteUsers()
         }
@@ -64,6 +85,14 @@ class MainActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(){
                 getData()
+            })
+    }
+    fun getDataUserByZona(zona:String){
+        disposable.add(Observable.fromCallable { db?.UserDao()?.getDataUserByZona(zona)}
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(){
+                rv_userByZona_main.adapter = UserAdater(it!!,this)
             })
     }
 

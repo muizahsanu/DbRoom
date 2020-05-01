@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.latihanroom2.entities.UserDao
 import com.example.latihanroom2.entities.UserEntity
 
-@Database(entities = arrayOf(UserEntity::class),version = 1)
+@Database(entities = arrayOf(UserEntity::class),version = 2)
 abstract class UserDatabase: RoomDatabase(){
     abstract fun UserDao(): UserDao
 
@@ -18,7 +18,7 @@ abstract class UserDatabase: RoomDatabase(){
                         context.applicationContext,
                         UserDatabase::class.java,
                         "UserDb"
-                    ).build()
+                    ).fallbackToDestructiveMigration().build()
                 }
             }
             return INSTANCES

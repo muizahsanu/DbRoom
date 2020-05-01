@@ -15,6 +15,12 @@ import io.reactivex.schedulers.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.input_dialog.view.*
 
+/*29 April 2020
+Nama: Muiz Ahsanu Haqi
+Nim : 10117199
+Kelas: IF-5
+ */
+
 class MainActivity : AppCompatActivity() {
 
     private var db: UserDatabase? = null
